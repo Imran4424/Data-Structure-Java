@@ -82,4 +82,53 @@ public class BST {
 
 		return root;
 	}
+
+	void preOrder(Node root) {
+		if (null == root) {
+			return;
+		}
+
+		System.out.println(root.data);
+
+		preOrder(root.left);
+		preOrder(root.right);
+	}
+
+	void inOrder(Node root) {
+		if (null == root) {
+			return;
+		}
+
+		inOrder(root.left);
+
+		System.out.println(root.data);
+
+		inOrder(root.right);
+	}
+
+	void postOrder(Node root) {
+		if (null == root) {
+			return;
+		}
+
+		postOrder(root.left);
+		postOrder(root.right);
+
+		System.out.println(root.data);
+	}
+
+	// This is a interview question
+	void mirror(Node root) {
+		if (null == root) {
+			return;
+		}
+
+		// swapping the child nodes
+		Node temp = root.left;
+		root.left = root.right;
+		root.right = temp;
+
+		mirror(root.left);
+		mirror(root.right);
+	}
 }
